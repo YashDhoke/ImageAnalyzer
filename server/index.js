@@ -16,6 +16,10 @@ const storage = multer.diskStorage({
 
   const upload = multer({ storage });
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the Image Analyzer API');
+  });
+
   app.post('/upload', upload.single('image'), async (req, res) => {
     try {
       const worker = createWorker();
